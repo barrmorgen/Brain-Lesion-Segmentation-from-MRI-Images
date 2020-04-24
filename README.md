@@ -1,5 +1,4 @@
 # Brain-Lesion-Segmentation-from-MRI-Images
-This work aims to segment the BraTS 2015 dataset of brain tumor images, and label the different regions. This is part of the “Multimodal Brain Tumor Segmentation Challenge 2015”
 
 MRI scannings are essential in the effort of diagnosing and treating brain tumours. Often, the MRI data includes artifacts added as a result of several reasons. They can happen due to a movement of the patient during the scan, metallic implants the patient has or foreign bodies. Also it can be affected by the MRI machine itself. One possibility is inhomogeneity in the magnetic field applied. These artifacts result in bias to the scans, which may affect the segmentation and the diagnostic process models. Other types of artifacts can occur due to Finite sampling, k-space encoding, and Fourier transformation that may cause aliasing and Gibbs phenomena. Characteristics of pulse sequences may cause black boundary, Moiré, and phase-encoding artifacts. Hardware issues may cause central point and RF overflow artifacts. 
 
@@ -12,8 +11,17 @@ This work aims to segment the BraTS 2015 dataset of brain tumor, and label the d
 
 Implementation of the segmentation models was implemented to randomly-selected 33x33 patches of brain MRI images. In this work we examine three possible methods for the implementation:
 Method 1)  Application of a fully convolutional neural network (FCN) with 4 convolutional, max-pooling layers followed by convolution and softmax layers. This model implements a pixel-wise segmentation problem as a classification problem [2]. This model aims to label, pixel-by-pixel, patches around the central pixels to be: necrosis, edema, non-enhancing tumor, enhancing tumor, else (Fig.1).
+
+![Figure 1: Model no.1. The Input is four 33x33 patches from a randomly selected slice. Each imaging pulse sequence is input as a channel into the net, followed by four convolution/max pooling layers and a convolution with softmax](/Users/barrm/Documents/NYU/Image & Video Processing/project/Screen Shot 2020-04-24 at 6.07.54 PM.png)
+
 Method 2) Implementation of a U-Net [3]. In this implementation successive layers are downsampled until a determined ‘depth’ of the network. Then the layers are upsampled, concatenated and convolved with the previous layers consecutively, increasing the resolution of the output. (Fig.2). 
+
+![Figure 2: U-net architecture (example for 32x32 pixels in the lowest resolution). Each blue box corresponds to a multi-channel feature map. The number of channels is denoted on top of the box. The x-y-size is provided at the lower left edge of the box. White boxes represent copied feature maps. The arrows denote the different operations (Ronneberger, et.al. 2015)](/Users/barrm/Documents/NYU/Image & Video Processing/project/Screen Shot 2020-04-24 at 6.08.06 PM.png)
+
 Method 3) Implementation of a CE-Net [4]. (Fig.3). This model relies on a novel  dense atrous convolution (DAC) block and a  residual multi-kernel pooling (RMP) block to get more features out of the input and preserve more of their spatial information in order to increase the output accuracy.
+
+![Figure 3: Illustration of the proposed CE-Net. Firstly, the images are fed into a feature encoder module, where the ResNet-34 block pretrained from ImageNet is used to replace the original U-Net encoder block. The context extractor is proposed to generate more high-level semantic feature maps. It contains a dense atrous convolution (DAC) block and a residual multi-kernel pooling (RMP) block. Finally, the extracted features are fed into the feature decoder module. In this paper, we adopt a decoder block to enlarge the feature size, replacing the original up-sampling operation. The decoder block contains 1×1 convolution and 3×3 deconvolution operations. Based on skip connection and the decoder block, we obtain the mask as the segmentation prediction map (modified from Gu, Z et.al. 2019)
+](/Users/barrm/Documents/NYU/Image & Video Processing/project/Screen Shot 2020-04-24 at 6.08.18 PM.png)
 
 
 ### Refrences
