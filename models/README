@@ -14,4 +14,6 @@ model = SegmentationModel()
 model.fit_model(X, y)
 model.save_model('models/example')
 
+See examples in: https://github.com/naldeborgh7575/brain_segmentation/tree/master/code
+
 *****
