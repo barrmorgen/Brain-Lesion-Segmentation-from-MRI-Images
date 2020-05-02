@@ -1,3 +1,4 @@
+
 Before running the preprocessing code make sure you:
 1) create a "BRATS_2015" folder for the Training and Testing data folders
 2) create a "project" folder containing the "BRATS_2015" folder in it
