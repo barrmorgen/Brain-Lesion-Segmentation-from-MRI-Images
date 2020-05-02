@@ -5,3 +5,5 @@ Before running the preprocessing code make sure you:
 3) create "Labels" and "Norm_PNG" folders in the project folder (assuming we are normalizing the data)
 
 You only need to run the preprocessing code (main) once. Please review the normalized output
+
+* Preprocessing code was generated based on the work shared in https://github.com/naldeborgh7575/brain_segmentation
