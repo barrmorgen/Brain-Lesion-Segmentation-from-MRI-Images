@@ -2,9 +2,6 @@
 -UNET
 -CENET
 
-
-
-
 *****
 
 Include CreatePatches.PatchLibrary in segmentation model call:
@@ -15,5 +12,11 @@ model.fit_model(X, y)
 model.save_model('models/example')
 
 See examples in: https://github.com/naldeborgh7575/brain_segmentation/tree/master/code
+
+
+***  to import one notebook as library to another notebook:
+1) In the terminal run: pip install import-ipynb
+2) add:  import import_ipynb
+3) then add the notebook:  from CreatePatches import PatchLibrary
 
 *****
