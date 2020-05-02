@@ -1,3 +1,17 @@
 -FCN
 -UNET
 -CENET
+
+
+
+
+*****
+
+Include CreatePatches.PatchLibrary in segmentation model call:
+
+if name == 'main': train_data = glob('train_data/**') patches = PatchLibrary((33,33), train_data, 50000) X,y = patches.make_training_patches()
+model = SegmentationModel()
+model.fit_model(X, y)
+model.save_model('models/example')
+
+*****
