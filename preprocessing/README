@@ -2,8 +2,11 @@
 Before running the preprocessing code make sure you:
 1) create a "BRATS_2015" folder for the Training and Testing data folders
 2) create a "project" folder containing the "BRATS_2015" folder in it
+3) Place "Preprocessing.ipynb" in project folder and run
 
-You only need to run the preprocessing code (main) once. Please review the normalized output
-The preprocessing code produces Patches and labels which can be used directly in NN for image segmentation
+You only need to run the preprocessing code (main) once. Please review the normalized output.
+The preprocessing code produces 4-Channel-Patches and  corresponding label images which can be used directly in a NN for image segmentation.
+These can be found in the "Patches/" and "CNN_Labels/" subdirectories created after running the Preprocessing script.
 
-* Preprocessing code was generated based on the work shared in https://github.com/naldeborgh7575/brain_segmentation with significant modifications
+* Preprocessing code was generated based on the work shared in https://github.com/naldeborgh7575/brain_segmentation with 
+* significant modifications.
