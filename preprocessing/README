@@ -1,7 +1,10 @@
 
 Before running the preprocessing code make sure you:
-1) create a "BRATS_2015" folder for the Training and Testing data folders
-2) create a "project" folder containing the "BRATS_2015" folder in it
+1) Create a "BRATS_2015" folder that will be used to store the Training and Testing data folders
+2) Create a "Project" folder containing the aforementioned "BRATS_2015" folder in it
+3) Extract the BRATS_2015_Training dataset to a folder named Training
+4) Extract the BRATS_2015_Testing dataset to a folder named Testing
+5) Move the newly created Training and Testing folders to the BRATS_2015 folder inside of the Project folder
 3) Place "Preprocessing.ipynb" in project folder and run
 
 You only need to run the preprocessing code (main) once. Please review the normalized output.
