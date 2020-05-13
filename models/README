@@ -1,18 +1,8 @@
--FCN
+-CNN
 -UNET
 -CENET
 
 *****
-
-Include CreatePatches.PatchLibrary in segmentation model call:
-
-if name == 'main': train_data = glob('train_data/**') patches = PatchLibrary((33,33), train_data, 50000) X,y = patches.make_training_patches()
-model = SegmentationModel()
-model.fit_model(X, y)
-model.save_model('models/example')
-
-See examples in: https://github.com/naldeborgh7575/brain_segmentation/tree/master/code
-
 
 ***  to import one notebook as library to another notebook:
 1) In the terminal run: pip install import-ipynb
