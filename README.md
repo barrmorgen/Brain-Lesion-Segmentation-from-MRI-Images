@@ -10,11 +10,11 @@ CE-Net: Context encoder networks image segmentation
 This work aims to segment the BraTS 2015 dataset of brain tumor, and label the different regions. This is part of the “Multimodal Brain Tumor Segmentation Challenge 2015” [http://www.braintumorsegmentation.org/]. The brain regions are to be segmented and labeled to: 1) necrosis, 2) edema, 3) non-enhancing tumor, 4) enhancing tumor, 5) else. The dataset contains fully anonymized images from the Cancer Imaging Archive, subdivided to high grade and low grade images. Each patient is modeled using 4 images T1, T1-C, T2 and FLAIR. A fifth image contains the true labels to each pixel.
 
 Implementation of the segmentation models was implemented to randomly-selected 33x33 patches of brain MRI images. In this work we examine three possible methods for the implementation:
-Method 1)  Application of a fully convolutional neural network (FCN) with 4 convolutional, max-pooling layers followed by convolution and softmax layers. This model implements a pixel-wise segmentation problem as a classification problem [2]. This model aims to label, pixel-by-pixel, patches around the central pixels to be: necrosis, edema, non-enhancing tumor, enhancing tumor, else (Fig.1).
+Method 1)  Application of a CNN with 6 convolutional. This model implements a pixel-wise segmentation problem as a classification problem [2]. This model aims to label, pixel-by-pixel, patches around the central pixels to be: necrosis, edema, non-enhancing tumor, enhancing tumor, else (Fig.1).
 
 
 ![Figure 1](https://github.com/barrmorgen/Brain-Lesion-Segmentation-from-MRI-Images/blob/master/model1.png)<!-- .element height="10%" width="10%" -->
-Figure 1: Model no.1. The Input is four 33x33 patches from a randomly selected slice. Each imaging pulse sequence is input as a channel into the net, followed by four convolution/max pooling layers and a convolution with softmax
+Figure 1: Model no.1.  Each imaging pulse sequence is input as a channel into the net, followed by four convolution/max pooling layers and a convolution with softmax
 
 
 Method 2) Implementation of a U-Net [3]. In this implementation successive layers are downsampled until a determined ‘depth’ of the network. Then the layers are upsampled, concatenated and convolved with the previous layers consecutively, increasing the resolution of the output. (Fig.2). 
