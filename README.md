@@ -14,21 +14,21 @@ Method 1)  Application of a FCN with 6 convolutional. This model implements a pi
 
 
 ![Figure 1](https://github.com/barrmorgen/Brain-Lesion-Segmentation-from-MRI-Images/blob/master/model1.png)<!-- .element height="10%" width="10%" -->
-Figure 1: Model no.1.  Each imaging pulse sequence is input as a channel into the net, followed by four convolution/max pooling layers and a convolution with softmax
+Figure 1: Model no.1. (general model form) Each imaging pulse sequence is input as a channel into the net, followed by four convolution/max pooling layers and a convolution with softmax
 
 
 Method 2) Implementation of a U-Net [3]. In this implementation successive layers are downsampled until a determined ‘depth’ of the network. Then the layers are upsampled, concatenated and convolved with the previous layers consecutively, increasing the resolution of the output. (Fig.2). 
 
 
 ![Figure 2](https://github.com/barrmorgen/Brain-Lesion-Segmentation-from-MRI-Images/blob/master/model2.png)<!-- .element height="30%" width="30%" -->
-Figure 2: U-net architecture (example for 32x32 pixels in the lowest resolution). Each blue box corresponds to a multi-channel feature map. The number of channels is denoted on top of the box. The x-y-size is provided at the lower left edge of the box. White boxes represent copied feature maps. The arrows denote the different operations (Ronneberger, et.al. 2015)
+Figure 2: U-net architecture (general model form). Each blue box corresponds to a multi-channel feature map. The number of channels is denoted on top of the box. The x-y-size is provided at the lower left edge of the box. White boxes represent copied feature maps. The arrows denote the different operations (Ronneberger, et.al. 2015)
 
 
 Method 3) Implementation of a CE-Net [4]. (Fig.3). This model relies on a novel  dense atrous convolution (DAC) block and a  residual multi-kernel pooling (RMP) block to get more features out of the input and preserve more of their spatial information in order to increase the output accuracy.
 
 
 ![Figure 3](https://github.com/barrmorgen/Brain-Lesion-Segmentation-from-MRI-Images/blob/master/model3.png)<!-- .element height="40%" width="40%" -->
-Figure 3: Illustration of the proposed CE-Net. Firstly, the images are fed into a feature encoder module, where the ResNet-34 block pretrained from ImageNet is used to replace the original U-Net encoder block. The context extractor is proposed to generate more high-level semantic feature maps. It contains a dense atrous convolution (DAC) block and a residual multi-kernel pooling (RMP) block. Finally, the extracted features are fed into the feature decoder module. In this paper, we adopt a decoder block to enlarge the feature size, replacing the original up-sampling operation. The decoder block contains 1×1 convolution and 3×3 deconvolution operations. Based on skip connection and the decoder block, we obtain the mask as the segmentation prediction map (modified from Gu, Z et.al. 2019
+Figure 3: Illustration of the proposed CE-Net (general model form). Firstly, the images are fed into a feature encoder module, where the ResNet-34 block pretrained from ImageNet is used to replace the original U-Net encoder block. The context extractor is proposed to generate more high-level semantic feature maps. It contains a dense atrous convolution (DAC) block and a residual multi-kernel pooling (RMP) block. Finally, the extracted features are fed into the feature decoder module. In this paper, we adopt a decoder block to enlarge the feature size, replacing the original up-sampling operation. The decoder block contains 1×1 convolution and 3×3 deconvolution operations. Based on skip connection and the decoder block, we obtain the mask as the segmentation prediction map (modified from Gu, Z et.al. 2019
 
 
 
